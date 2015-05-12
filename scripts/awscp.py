@@ -13,7 +13,7 @@ if __name__ == '__main__':
     for arg in argv[1:]:
         if '@' in arg:
             name = arg.split('@')[-1]
-            name = name.split[':'][0]
+            name = name.split(':')[0]
             names.append(name)
 
     if names:
