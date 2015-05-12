@@ -30,13 +30,19 @@ Or from a source distribution:
 Scripts
 -------
 
-Currently there is only one script, ``awssh.py``. This script is added to the
-Python *Scripts* directy and should be on the system path. ``awssh.py`` is
-used just as you would use ssh.
+Currently there are only two scripts, ``awssh.py`` and ``awscp.py``. These
+scripts are added to the Python *Scripts* directy and should be on the system
+path. ``awssh.py`` and ``awscp.py`` are used just as you would use ssh and scp.
+
+Examples:
 
 .. code-block::
 
         $ awssh.py user@TagName
 
-Except instead of having to remember IP addresses or weird domain names, a
-``Name`` tag is used instead.
+.. code-block::
+        
+        $ awscp.py /path/to/local/file user@TagName:/path/to/remote/file
+
+Except instead of having to remember IP addresses or weird domain names, the
+value of a ``Name`` tag is used instead.
