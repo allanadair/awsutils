@@ -37,4 +37,4 @@ def scp(names, *args):
             new_args.append(arg)
 
     if new_args:
-        call(['scp'] + new_args)
+        call(['scp', '-F', '/dev/null'] + new_args)

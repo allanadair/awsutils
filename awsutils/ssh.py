@@ -35,4 +35,4 @@ def ssh(name, *args):
         new_args.append(arg)
 
     if new_args:
-        call(['ssh'] + new_args)
+        call(['ssh', '-F', '/dev/null'] + new_args)
