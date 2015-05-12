@@ -25,10 +25,9 @@ def scp(names, *args):
             if instances:
                 addrs[names[i]] = instances[0]['PublicIpAddress']
 
-    if not addrs.get(0):
-        raise Exception('No ec2 instance named "{0}".'.format(names[0]))
-    if len(names) == 2 and not addrs.get(1):
-        raise Exception('No ec2 instance named "{0}".'.format(names[1]))
+    for name in names:
+        if not addrs.get(name):
+            raise Exception('No ec2 instance named "{0}".'.format(names[0]))
 
     new_args = []
     for arg in args:
