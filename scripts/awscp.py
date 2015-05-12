@@ -19,4 +19,4 @@ if __name__ == '__main__':
     if names:
         scp(names, *argv[1:])
     else:
-        raise Exception("Must provide user@name argument(s).")
+        raise Exception('Must provide user@name argument(s).')
