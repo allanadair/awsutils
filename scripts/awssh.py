@@ -16,3 +16,5 @@ if __name__ == '__main__':
 
     if name_value:
         ssh(name_value, *argv[1:])
+    else:
+        raise Exception("Must provide a user@TagName argument.")
