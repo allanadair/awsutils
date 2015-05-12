@@ -26,7 +26,7 @@ def ssh(name, *args):
             addr = instances[0]['PublicIpAddress']
 
     if not addr:
-        raise Exception('No ec2 instance named "{0}" found.'.format(name))
+        raise Exception('No ec2 instance named "{0}".'.format(name))
 
     new_args = []
     for arg in args:
