@@ -3,16 +3,19 @@ SSH utilities
 
 """
 import json
-from subprocess import check_call, check_output
+from subprocess import call, check_output
 
 
 def ssh(name, *args):
     """
-    Opens a SSH session.
+    Opens a SSH session to the first Amazon ec2 instance which matches a given
+    ``Name`` tag.
 
     :param name: The value of the ``Name`` tag of the instance
+    :type name: string
 
     """
+    addr = None
     desc = check_output(['aws', 'ec2', 'describe-instances', '--filter',
                          'Name=tag:Name,Values={0}'.format(name),
                          '--output=json'])
@@ -22,7 +25,8 @@ def ssh(name, *args):
         if instances:
             addr = instances[0]['PublicIpAddress']
 
-    assert(addr)
+    if not addr:
+        raise Exception('No ec2 instance named "{0}" found.'.format(name))
 
     new_args = []
     for arg in args:
@@ -30,4 +34,5 @@ def ssh(name, *args):
             arg = arg.replace(name, addr)
         new_args.append(arg)
 
-    check_call(['ssh'] + new_args)
+    if new_args:
+        call(['ssh'] + new_args)
