@@ -39,4 +39,4 @@ used just as you would use ssh.
         $ awssh.py user@TagName
 
 Except instead of having to remember IP addresses or weird domain names, a
-``Name`` tag is be used instead.
+``Name`` tag is used instead.
