@@ -5,8 +5,8 @@ awsutils
 awsutils represents a grab bag of utilities that make life easier when working
 with amazon web services.
 
-Currently there is only a utility that allows a user to open a SSH connection
-to an instance based on its ``Name`` tag.
+Currently there two utilities for using SSH and SCP connections to instances
+based on the value of their respective ec2 ``Name`` tags.
 
 This package depends on the ``awscli`` package and a proper configuration. To
 configure the Amazon CLI, please see the official documentation:
