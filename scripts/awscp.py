@@ -12,7 +12,9 @@ if __name__ == '__main__':
 
     for arg in argv[1:]:
         if '@' in arg:
-            names.append(arg.split('@')[-1])
+            name = arg.split('@')[-1]
+            name = name.split[':'][0]
+            names.append(name)
 
     if names:
         scp(names, *argv[1:])
