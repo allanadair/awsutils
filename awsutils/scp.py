@@ -23,7 +23,10 @@ def scp(names, *args):
         if reservations:
             instances = reservations[0].get('Instances')
             if instances:
-                addrs[names[i]] = instances[0]['PublicIpAddress']
+
+                # prefer public IP over private IP
+                addrs[names[i]] = instances[0]['PublicIpAddress'] or \
+                    instances[0]['PrivateIpAddress']
 
     for name in names:
         if not addrs.get(name):
@@ -37,4 +40,4 @@ def scp(names, *args):
             new_args.append(arg)
 
     if new_args:
-        call(['scp'] + new_args)
+        call(['scp', '-F', '/dev/null'] + new_args)
