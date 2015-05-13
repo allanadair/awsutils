@@ -23,7 +23,10 @@ def ssh(name, *args):
     if reservations:
         instances = reservations[0].get('Instances')
         if instances:
-            addr = instances[0]['PublicIpAddress']
+
+            # prefer public IP over private IP
+            addr = instances[0]['PublicIpAddress'] or \
+                instances[0]['PrivateIpAddress']
 
     if not addr:
         raise Exception('No ec2 instance named "{0}".'.format(name))
