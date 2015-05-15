@@ -2,8 +2,8 @@
 SCP utilities
 
 """
-import json
-from subprocess import call, check_output
+from . import lookup
+from subprocess import call
 
 
 def scp(names, *args):
@@ -16,21 +16,7 @@ def scp(names, *args):
     """
     addrs = {}
     for i, name in enumerate(names):
-        desc = check_output(['aws', 'ec2', 'describe-instances', '--filter',
-                             'Name=tag:Name,Values={0}'.format(name),
-                             '--output=json'])
-        reservations = json.loads(desc).get('Reservations')
-        if reservations:
-            instances = reservations[0].get('Instances')
-            if instances:
-
-                # prefer public IP over private IP
-                addrs[names[i]] = instances[0]['PublicIpAddress'] or \
-                    instances[0]['PrivateIpAddress']
-
-    for name in names:
-        if not addrs.get(name):
-            raise Exception('No ec2 instance named "{0}".'.format(names[0]))
+        addrs[names[i]] = lookup(name)
 
     new_args = []
     for arg in args:
