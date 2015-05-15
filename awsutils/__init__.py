@@ -26,8 +26,8 @@ def lookup(name):
         if instances:
 
             # prefer public IP over private IP
-            addr = instances[0]['PublicIpAddress'] or \
-                instances[0]['PrivateIpAddress']
+            addr = instances[0].get('PublicIpAddress') or \
+                instances[0].get('PrivateIpAddress')
 
     if not addr:
         raise Exception('No ec2 instance named "{0}".'.format(name))
