@@ -2,8 +2,8 @@
 SSH utilities
 
 """
-import json
-from subprocess import call, check_output
+from . import lookup
+from subprocess import call
 
 
 def ssh(name, *args):
@@ -15,21 +15,7 @@ def ssh(name, *args):
     :type name: string
 
     """
-    addr = None
-    desc = check_output(['aws', 'ec2', 'describe-instances', '--filter',
-                         'Name=tag:Name,Values={0}'.format(name),
-                         '--output=json'])
-    reservations = json.loads(desc).get('Reservations')
-    if reservations:
-        instances = reservations[0].get('Instances')
-        if instances:
-
-            # prefer public IP over private IP
-            addr = instances[0]['PublicIpAddress'] or \
-                instances[0]['PrivateIpAddress']
-
-    if not addr:
-        raise Exception('No ec2 instance named "{0}".'.format(name))
+    addr = lookup(name)
 
     new_args = []
     for arg in args:

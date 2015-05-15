@@ -3,6 +3,8 @@
 Setup.py script for awsutils
 
 """
+import ez_setup
+ez_setup.use_setuptools()
 from setuptools import setup, find_packages
 import awsutils
 
@@ -19,13 +21,16 @@ requires = ['awscli']
 
 setup_options = dict(name='awsutils',
                      version=awsutils.__version__,
-                     description='Utilities for managing Amazon ec2 instances based "Name" tags as unique identifiers',
+                     description='Utilities for managing Amazon ec2 instances'
+                                 'based "Name" tags as unique identifiers',
                      license='BSD',
                      long_description=readme('README.rst'),
                      author='Allan Adair',
                      author_email='allan.m.adair@gmail.com',
                      url='https://github.com/allanadair/awsutils',
-                     scripts=['scripts/awssh.py', 'scripts/awscp.py'],
+                     scripts=['scripts/awssh.py',
+                              'scripts/awscp.py',
+                              'scripts/awslookup.py'],
                      packages=find_packages('.'),
                      package_dir={'awsutils': 'awsutils'},
                      install_requires=requires,
