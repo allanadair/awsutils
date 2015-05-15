@@ -14,7 +14,7 @@ with amazon web services.
 | awscp.py     | Facilitates SCP operations based on the values of ec2 |
 |              | ``Name`` tags instead of network addresses.           |
 +--------------+-------------------------------------------------------+
-| awslookup.py | Returns IP addresses of instances,                    |
+| awslookup.py | Returns IP addresses of instances.                    |
 +--------------+-------------------------------------------------------+
 
 This package depends on the ``awscli`` package and a proper configuration. To
