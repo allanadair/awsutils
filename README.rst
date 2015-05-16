@@ -2,8 +2,8 @@
 awsutils
 ========
 
-awsutils represents a grab bag of utilities that make life easier when working
-with amazon web services.
+``awsutils`` represents a grab bag of utilities that make life easier when
+working with amazon web services.
 
 +--------------+-------------------------------------------------------+
 | script       | Description                                           |
@@ -39,19 +39,25 @@ Or from a source distribution:
 Scripts
 -------
 
-Currently there are only two scripts, ``awssh.py`` and ``awscp.py``. These
-scripts are added to the Python *Scripts* directy and should be on the system
-path. ``awssh.py`` and ``awscp.py`` are used just as you would use ssh and scp.
+These scripts are added to the Python *Scripts* directy and should be on the
+system path. ``awssh.py`` and ``awscp.py`` are used just as a user would
+normally use ssh and scp. If a named instance contains spaces, enclose the
+instance-name in quotations.
 
 Examples:
 
-.. code-block::
+.. code-block:: bash
 
-        $ awssh.py user@TagName
+        $ awssh.py user@myserver1
 
-.. code-block::
+.. code-block:: bash
+
+        $ awssh.py user@"my server 1"
+
+.. code-block:: bash
         
-        $ awscp.py /path/to/local/file user@TagName:/path/to/remote/file
+        $ awscp.py /path/to/local/file user@myserver1:/path/to/remote/file
 
-Except instead of having to remember IP addresses or weird domain names, the
-value of a ``Name`` tag is used instead.
+.. code-block:: bash
+
+        $ awslookup.py myserver1
