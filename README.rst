@@ -17,10 +17,6 @@ working with amazon web services.
 | ``awslookup.py`` | Returns IP addresses of instances by ``Name``.        |
 +------------------+-------------------------------------------------------+
 
-This package depends on the ``awscli`` package and a proper configuration. To
-configure the Amazon CLI, please see the official documentation:
-http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
-
 Installation
 ------------
 
@@ -36,15 +32,20 @@ Or from a source distribution:
 
         $ python setup.py install
 
-Scripts
--------
+Configuration
+------------
+
+This package depends on the ``awscli`` package and a proper configuration. To
+configure the Amazon CLI, please see the official documentation:
+http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+
+Examples
+--------
 
 These scripts are added to the Python *Scripts* directy and should be on the
 system path. ``awssh.py`` and ``awscp.py`` are used just as a user would
 normally use ssh and scp. If a named instance contains spaces, enclose the
 instance-name in quotations.
-
-Examples:
 
 .. code-block:: bash
 
