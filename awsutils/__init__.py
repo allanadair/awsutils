@@ -5,7 +5,7 @@ awsutils
 import json
 from subprocess import check_output
 
-__version__ = '1.0.6'
+__version__ = '1.0.7'
 
 
 def lookup(name):
