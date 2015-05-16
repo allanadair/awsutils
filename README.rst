@@ -5,17 +5,17 @@ awsutils
 ``awsutils`` represents a grab bag of utilities that make life easier when
 working with amazon web services.
 
-+--------------+-------------------------------------------------------+
-| script       | Description                                           |
-+==============+=======================================================+
-| awssh.py     | Establishes SSH connections based on the value of ec2 |
-|              | ``Name`` tags instead of network addresses.           |
-+--------------+-------------------------------------------------------+
-| awscp.py     | Facilitates SCP operations based on the values of ec2 |
-|              | ``Name`` tags instead of network addresses.           |
-+--------------+-------------------------------------------------------+
-| awslookup.py | Returns IP addresses of instances.                    |
-+--------------+-------------------------------------------------------+
++------------------+-------------------------------------------------------+
+| script           | Description                                           |
++==================+=======================================================+
+| ``awssh.py``     | Establishes SSH connections based on the value of ec2 |
+|                  | ``Name`` tags instead of network addresses.           |
++------------------+-------------------------------------------------------+
+| ``awscp.py``     | Facilitates SCP operations based on the values of ec2 |
+|                  | ``Name`` tags instead of network addresses.           |
++------------------+-------------------------------------------------------+
+| ``awslookup.py`` | Returns IP addresses of instances by ``Name``.        |
++------------------+-------------------------------------------------------+
 
 This package depends on the ``awscli`` package and a proper configuration. To
 configure the Amazon CLI, please see the official documentation:
